@@ -1,0 +1,87 @@
+/*
+Theme Name:         Sage Starter Theme
+Theme URI:          https://roots.io/sage/
+Description:        Sage is a WordPress starter theme. <a href="https://github.com/roots/sage">Contribute on GitHub</a>
+Version:            8.5.0
+Author:             Roots
+Author URI:         https://roots.io/
+Text Domain:        sage
+
+License:            MIT License
+License URI:        http://opensource.org/licenses/MIT
+*/
+
+.wrap.container {
+  max-width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.content.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.main {
+  width: 100%;
+}
+header.banner {
+  display: none;
+}
+
+
+/* NAV SECTION */
+
+.logo img {
+  left: -20px;
+}
+
+
+/* Gravity Form */
+
+.gfield_checkbox li label:after {
+  content: "";
+  background: #fff;
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 0px;
+  z-index: 0;
+  -moz-box-shadow:    inset 0 0.5px 1px #000000;
+  -webkit-box-shadow: inset 0 0.5px 1px #000000;
+  box-shadow:         inset 0 0.5px 1px #000000;
+}
+
+.gfield_checkbox li label:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 15px;
+  border: solid #5a5a5a;
+  border-width: 0 3px 3px 0;
+  left: 10px;
+  top: 4px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  opacity: 0;
+  z-index: 1;
+  transition: all 100ms;
+}
+input[type="checkbox"] {
+  outline: none;
+  z-index: 100;
+  width: 27px;
+  height: 27px;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+input[type="checkbox"] + label {
+  cursor: pointer;
+}
+input[type="checkbox"]:checked + label:before {
+  opacity: 1;
+  top: 3px;
+}
