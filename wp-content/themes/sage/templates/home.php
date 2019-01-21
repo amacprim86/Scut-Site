@@ -41,7 +41,7 @@
                <?php the_field('section_1_-_text_content'); ?>
               <div class="sellect-choose">
                 <ul class="d-flex flex-column flex-sm-column flex-md-row flex-sm-row justify-content-start pt-4">
-                    <li><a href="students-article.html"><?php the_field('section_1_-_button_1'); ?></a></li>
+                    <li><a href="/students-article"><?php the_field('section_1_-_button_1'); ?></a></li>
                     <li><a href="#"><?php the_field('section_1_-_button_2'); ?></a></li>
                 </ul>
               </div>
@@ -103,13 +103,53 @@
 
 <!-- category section 04-->
 <section>
-  <?php the_field('section_4'); ?>
+  <div  class="category-sec p_sec">
+    <div class="container">
+        <h2  class="mb-2">for students</h2>
+        <p>resources for getting into med school including ways to learn & train more efficiently.</p>
+
+        <div class="row mt-5">
+          <div class="col-md-6 col-sm-12">
+              <div class="category-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fq9GpfFHbCc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+          </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="category-info">
+                    <h3 class="mb-4 cl_01">5 things to remember in your med school interview</h3>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru.</p>
+                    <a class="btn btn-cat" href="/students-article/#pop2">see more student resources</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 </section>
 <!-- category section 04-->
 
 <!-- category section 05-->
 <section>
-  <?php the_field('section_5'); ?>
+  <div  class="category-sec p_sec bg_02">
+    <div class="container">
+        <h2  class="mb-2">for physicians</h2>
+        <p class="para_cl_1">premium, highly-curated gi content. It’s never been easier to stay on the cutting-edge.</p>
+        <div class="row mt-5">
+          <div class="col-md-6 col-sm-12">
+              <div class="category-video">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/fq9GpfFHbCc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+          </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="category-info">
+                    <h3 class="mb-4 cl_02">comparative effiveness of advanced diagnostic imaging for hepatic fibrosis</h3>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru.</p>
+                    <a class="btn btn-cat btn-cat-cl-bd" href="/students-article/#pop1">see additional articles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </section>
 <!-- category section 05-->
 

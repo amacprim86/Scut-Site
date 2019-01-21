@@ -42,8 +42,8 @@
                         <div class="head-rh-info text-center">
                             <p><?php the_field('top_section_-_title'); ?></p>
                             <ul class="d-flex flex-column flex-sm-column flex-md-row flex-sm-row justify-content-between">
-                                <li><a href="students.html" class="active"><?php the_field('top_section_-_button_1'); ?></a></li>
-                                <li><a href="#"><?php the_field('top_section_-_button_2'); ?></a></li>
+                                <li><a href="#" class="stu_a"><?php the_field('top_section_-_button_1'); ?></a></li>
+                                <li><a href="#" class="phy_a"><?php the_field('top_section_-_button_2'); ?></a></li>
                             </ul>
                         </div>
                     </div>
@@ -59,8 +59,8 @@
                 <div class="col-md-12 p-0">
                     <nav class="nav-justified ">
                       <div class="nav nav-tabs " id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link " id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true">Physicians</a>
-                        <a class="nav-item nav-link active" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false">Students</a>
+                        <a class="nav-item nav-link phy" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true">Physicians</a>
+                        <a class="nav-item nav-link stu" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false">Students</a>
                       </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -73,7 +73,7 @@
                                       <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#">HOME</a></li>
                                         <li class="breadcrumb-item"><a href="#">PHYSICIANS</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">ARTICLE TITLE</li>
+                                   <!-- <li class="breadcrumb-item active" aria-current="page">ARTICLE TITLE</li> -->
                                       </ol>
                                     </nav>
                                 </div>
@@ -105,6 +105,11 @@
 
             <div class="row">
               <!-- PHYSICIANS ARTICLES, Post Loop START -->
+
+              <?php
+          		  // vars
+                $ps  = get_field('p_or_s');
+          		  ?>
               <?php
               $query = new WP_Query( array(
                 'meta_query' => array(
@@ -168,7 +173,7 @@
                                           <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="#">HOME</a></li>
                                             <li class="breadcrumb-item"><a href="#">STUDENTS</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">ARTICLE TITLE</li>
+                                       <!-- <li class="breadcrumb-item active" aria-current="page">ARTICLE TITLE</li> -->
                                           </ol>
                                         </nav>
                                     </div>
@@ -331,10 +336,40 @@ aside.sidebar {
 }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+<script>
+//LINK TO SPECIFIC ANCHOR ON ANOTHER PAGE!!!
+
+  $(document).ready(function() {
+  var url = window.location.href;
+  if (url.includes("#pop1")) {
+    //remove all active classes
+    $(".nav-tabs .nav-link.phy").addClass('active');
+    $("div#pop1.tab-pane.fade").addClass('active show');
+    $("div#pop1.tab-pane.fade").attr('aria-selected', true);
+    $(".nav-tabs .nav-link.stu").attr("href", "/#pop2");
+    //add back active class to chosen tab
+    $(".nav-item.nav-link.stu").removeClass('active');
+    $("div#pop2.tab-pane.fade").removeClass('active show');
+    $("div#pop2.tab-pane.fade").attr('aria-selected', false);
+    $(".nav-tabs .nav-link.phy").attr("href", "/#pop1");
+
+
+
+
+  }
+
+
+  });
+
+
+
+</script>
 
 
 <script>
+
     $(document).on('click', '.topics input', function(event) {
         var selected = [];
         $('.topics input:checked').each(function() {
@@ -353,9 +388,25 @@ aside.sidebar {
                 } else {
                     $(el).fadeOut('fast');
                 }
+
             })
         });
     });
+
+</script>
+
+<script>
+$('.topics').find('input').bind('click', watchCheck)
+watchCheck()
+
+function watchCheck(){
+    if($('.topics').find('input:checked').length > 0)
+    {
+        // any one is checked
+    }else{
+        $(".article-loop").show(); // none is checked
+    }
+};
 </script>
 
 <script>
@@ -366,4 +417,38 @@ getTermName.text(function(i,value) {
   return value.replace(/\-/g, " ")
 });
 })
+</script>
+
+
+
+<script>
+jQuery(function ($) {
+if('physician' == "<?php echo ($ps ? 'physician' : 'student'); ?>") {
+      // in here it means that the checkbox is checked
+
+       $(".nav-tabs .nav-link.phy").addClass("active");
+
+       $(".head-rh-info ul li a.phy_a").addClass("active");
+
+     } else {
+       $(".nav-tabs .nav-link.stu").addClass("active");
+
+       $(".head-rh-info ul li a.stu_a").addClass("active");
+     };
+   });
+</script>
+
+<script>
+jQuery(function ($) {
+  $(".nav-tabs .nav-link.phy").click(function(){
+  $(".head-rh-info ul li a.phy_a").addClass("active");
+  $(".head-rh-info ul li a.stu_a").removeClass("active");
+  });
+});
+jQuery(function ($) {
+  $(".nav-tabs .nav-link.stu").click(function(){
+  $(".head-rh-info ul li a.stu_a").addClass("active");
+  $(".head-rh-info ul li a.phy_a").removeClass("active");
+  });
+});
 </script>

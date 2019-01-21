@@ -482,6 +482,8 @@ button.btn.btn-default.btn-sign-up {
     font-weight: bold;
     position: relative;
 }
+
+
 .mian-taps .nav-tabs .nav-link.active::before {
     content: "";
     background-color: #134151;
@@ -623,6 +625,62 @@ ol.breadcrumb a {
 }
 .article-box-video iframe {
     height: 197px;
+}
+
+/* CUSTOM POST TYPE - DESKTOP */
+
+.c-post {
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+  height: auto;
+  padding-top: 50px;
+}
+.c-post iframe {
+  width: 100%;
+  height: auto;
+  min-height: 600px;
+}
+.c-post .article-all {
+  width: 100%;
+  padding-top: 50px;
+}
+.c-post .article-all h1.a-title {
+  color: #ade8e6;
+  font-size: 21px;
+  font-weight: 700;
+  font-family: 'montserrat',sans-serif;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.c-post .article-all h1.a-auth {
+  color: #9b9b9b;
+  font-size: 21px;
+  font-weight: 700;
+  font-family: 'montserrat',sans-serif;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.c-post .article-all .written {
+  padding-top: 30px;
+  padding-bottom: 100px;
+}
+.c-post .article-all .written p {
+  color: #979797;
+  letter-spacing: .7px;
+  line-height: 1.81;
+  font-family: 'merriweather',sans-serif;
+}
+.post-feat {
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
 }
 
 
