@@ -20,7 +20,7 @@
                         <p><?php the_field('top_section_-_title'); ?></p>
                         <ul class="d-flex flex-column flex-sm-column flex-md-row flex-sm-row justify-content-between">
                             <li><a href="/students-article" class="active"><?php the_field('top_section_-_button_1'); ?></a></li>
-                            <li><a href="#"><?php the_field('top_section_-_button_2'); ?></a></li>
+                            <li><a href="/students-article/#pop2"><?php the_field('top_section_-_button_2'); ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -83,6 +83,8 @@
 
               <?php endwhile; ?>
             <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
+
             </div>
 
 
@@ -108,6 +110,38 @@
         <h2  class="mb-2">for students</h2>
         <p>resources for getting into med school including ways to learn & train more efficiently.</p>
 
+        <?php
+          // vars
+          $ps  = get_field('p_or_s');
+          ?>
+        <?php
+        $query = new WP_Query( array(
+          'meta_query' => array(
+          array(
+            'key' => 'p_or_s',
+            'compare' => '=',
+            'value' => '0'
+          ),
+          array(
+            'key' => 'featured_article',
+            'compare' => '=',
+            'value' => '1'
+          )
+        ),
+        'posts_per_page'      => 1,
+          'order' => 'ASC',
+          'post_type' => array('articles') ));
+
+        if ( $query->have_posts() ) : $index = 0; ?>
+            <?php while ( $query->have_posts() ) : $query->the_post(); $index++; ?>
+            <?php
+              $categories = get_the_category();
+              $category_string = "";
+                foreach($categories as $category) {
+                  $category_string .= $category->slug ." ";
+              }
+            ?>
+
         <div class="row mt-5">
           <div class="col-md-6 col-sm-12">
               <div class="category-video">
@@ -116,12 +150,18 @@
           </div>
             <div class="col-md-6 col-sm-12">
                 <div class="category-info">
-                    <h3 class="mb-4 cl_01">5 things to remember in your med school interview</h3>
-                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru.</p>
+                    <h3 class="mb-4 cl_01"><?php the_title(); ?></h3>
+                    <p class="mb-4"><?php echo custom_field_excerpt(); ?></p>
                     <a class="btn btn-cat" href="/students-article/#pop2">see more student resources</a>
                 </div>
             </div>
         </div>
+        <!-- show pagination here -->
+
+
+        <?php endwhile; ?>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
 
     </div>
 </div>
@@ -134,6 +174,40 @@
     <div class="container">
         <h2  class="mb-2">for physicians</h2>
         <p class="para_cl_1">premium, highly-curated gi content. It’s never been easier to stay on the cutting-edge.</p>
+
+        <?php
+          // vars
+          $ps  = get_field('p_or_s');
+          ?>
+        <?php
+        $query = new WP_Query( array(
+          'meta_query' => array(
+            array(
+              'key' => 'p_or_s',
+              'compare' => '=',
+              'value' => '1'
+            ),
+            array(
+              'key' => 'featured_article',
+              'compare' => '=',
+              'value' => '1'
+            )
+          ),
+        'posts_per_page'      => 1,
+          'order' => 'ASC',
+          'post_type' => array('articles') ));
+
+        if ( $query->have_posts() ) : $index = 0; ?>
+            <?php while ( $query->have_posts() ) : $query->the_post(); $index++; ?>
+            <?php
+              $categories = get_the_category();
+              $category_string = "";
+                foreach($categories as $category) {
+                  $category_string .= $category->slug ." ";
+              }
+            ?>
+
+
         <div class="row mt-5">
           <div class="col-md-6 col-sm-12">
               <div class="category-video">
@@ -142,12 +216,18 @@
           </div>
             <div class="col-md-6 col-sm-12">
                 <div class="category-info">
-                    <h3 class="mb-4 cl_02">comparative effiveness of advanced diagnostic imaging for hepatic fibrosis</h3>
-                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru.</p>
+                    <h3 class="mb-4 cl_01"><?php the_title(); ?></h3>
+                    <p class="mb-4"><?php echo custom_field_excerpt(); ?></p>
                     <a class="btn btn-cat btn-cat-cl-bd" href="/students-article/#pop1">see additional articles</a>
                 </div>
             </div>
         </div>
+        <!-- show pagination here -->
+
+
+        <?php endwhile; ?>
+        <?php endif; ?>
+
     </div>
 </div>
 </section>

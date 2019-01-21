@@ -60,7 +60,7 @@
                     <nav class="nav-justified ">
                       <div class="nav nav-tabs " id="nav-tab" role="tablist">
                         <a class="nav-item nav-link phy" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true">Physicians</a>
-                        <a class="nav-item nav-link stu" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false">Students</a>
+                        <a class="nav-item nav-link stu" id="pop2-tab" data-toggle="tab" href="/" role="tab" aria-controls="pop2" aria-selected="false">Students</a>
                       </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -338,34 +338,6 @@ aside.sidebar {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<script>
-//LINK TO SPECIFIC ANCHOR ON ANOTHER PAGE!!!
-
-  $(document).ready(function() {
-  var url = window.location.href;
-  if (url.includes("#pop1")) {
-    //remove all active classes
-    $(".nav-tabs .nav-link.phy").addClass('active');
-    $("div#pop1.tab-pane.fade").addClass('active show');
-    $("div#pop1.tab-pane.fade").attr('aria-selected', true);
-    $(".nav-tabs .nav-link.stu").attr("href", "/#pop2");
-    //add back active class to chosen tab
-    $(".nav-item.nav-link.stu").removeClass('active');
-    $("div#pop2.tab-pane.fade").removeClass('active show');
-    $("div#pop2.tab-pane.fade").attr('aria-selected', false);
-    $(".nav-tabs .nav-link.phy").attr("href", "/#pop1");
-
-
-
-
-  }
-
-
-  });
-
-
-
-</script>
 
 
 <script>
@@ -423,12 +395,17 @@ getTermName.text(function(i,value) {
 
 <script>
 jQuery(function ($) {
+    var url = window.location.href;
 if('physician' == "<?php echo ($ps ? 'physician' : 'student'); ?>") {
       // in here it means that the checkbox is checked
 
        $(".nav-tabs .nav-link.phy").addClass("active");
 
        $(".head-rh-info ul li a.phy_a").addClass("active");
+
+     } else if (url.includes("#pop1")) {
+
+       $(".head-rh-info ul li a.stu_a").addClass("active");
 
      } else {
        $(".nav-tabs .nav-link.stu").addClass("active");
@@ -443,12 +420,47 @@ jQuery(function ($) {
   $(".nav-tabs .nav-link.phy").click(function(){
   $(".head-rh-info ul li a.phy_a").addClass("active");
   $(".head-rh-info ul li a.stu_a").removeClass("active");
+  $("#pop2").removeClass('active show');
+  $("#pop1").addClass('active show');
   });
 });
 jQuery(function ($) {
   $(".nav-tabs .nav-link.stu").click(function(){
   $(".head-rh-info ul li a.stu_a").addClass("active");
   $(".head-rh-info ul li a.phy_a").removeClass("active");
+  $("#pop1").removeClass('active show');
+  $("#pop2").addClass('active show');
   });
 });
+</script>
+
+<script>
+//LINK TO SPECIFIC ANCHOR ON ANOTHER PAGE!!!
+
+  $(document).ready(function() {
+  var url = window.location.href;
+  if (url.includes("#pop1")) {
+    //remove all active classes
+    $(".nav-tabs .nav-link.phy").addClass('active');
+    $("div#pop1.tab-pane.fade").addClass('active show');
+    $("div#pop1.tab-pane.fade").attr('aria-selected', true);
+    $(".nav-tabs .nav-link.stu").attr("href", "/#pop2");
+    //add back active class to chosen tab
+    $(".nav-item.nav-link.stu").removeClass('active');
+    $("div#pop2.tab-pane.fade").removeClass('active show');
+    $("div#pop2.tab-pane.fade").attr('aria-selected', false);
+    $(".nav-tabs .nav-link.phy").attr("href", "/#pop1");
+    $("#pop2-tab").removeClass('active');
+
+    $(".nav-tabs .nav-link.stu").click(function(){
+      $(".nav-tabs .nav-link.stu").attr("href", "/students-article/").attr("data-toggle",false);
+    });
+
+  }
+
+
+  });
+
+
+
 </script>

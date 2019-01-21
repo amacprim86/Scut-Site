@@ -92,25 +92,26 @@
           <div class="post-feat">
             <div class="article-box-main mb-5">
               <div class="row">
-            <!-- PHYSICIANS ARTICLES, Post Loop START -->
+            <!-- PHYSICIANS OR STUDENTS ARTICLES, Post Loop START -->
             <?php
             $query = new WP_Query( array(
               'meta_query' => array(
               array(
-                'key' => 'featured_article',
-                'compare' => '=',
-                'value' => '1'
+                'key' => 'p_or_s',
+                'compare' => '==',
+                'value' => '0'
               )
             ),
               'meta_query' => array(
               array(
-                'key' => 'p_or_s',
-                'compare' => '=',
-                'value' => '0'
+                'key' => 'featured_article',
+                'compare' => '==',
+                'value' => '1'
               )
             ),
 
-              'posts_per_page'      => -1,
+
+              'posts_per_page'      => 3,
               'order' => 'ASC',
               'post_type' => array('articles') ));
 
@@ -261,7 +262,7 @@ if('physician' == "<?php echo ($ps ? 'physician' : 'student'); ?>") {
 
      } else {
        $(".nav-tabs .nav-link.stu").addClass("active");
-       $(".nav-tabs .nav-link.phy").attr("href", "/students-article/").attr("data-toggle",false);
+       $(".nav-tabs .nav-link.phy").attr("href", "/students-article/#pop1").attr("data-toggle",false);
        $(".head-rh-info ul li a.stu_a").addClass("active");
      };
 </script>
