@@ -683,6 +683,13 @@ ol.breadcrumb a {
   margin: auto;
 }
 
+/* ARTICLE - 3 FEATURED */
+
+div.col-md-4.mb-5.mb-md-0.stud {
+}
+div.col-md-4.mb-5.mb-md-0.psys {
+}
+
 
 /*Resposnive Queries Start Here*/
 @media only screen and (max-width: 1199px) {

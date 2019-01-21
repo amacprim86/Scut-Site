@@ -42,8 +42,8 @@
                         <div class="head-rh-info text-center">
                             <p><?php the_field('top_section_-_title'); ?></p>
                             <ul class="d-flex flex-column flex-sm-column flex-md-row flex-sm-row justify-content-between">
-                                <li><a href="#" class="stu_a"><?php the_field('top_section_-_button_1'); ?></a></li>
-                                <li><a href="#" class="phy_a"><?php the_field('top_section_-_button_2'); ?></a></li>
+                                <li><a href="/students-article" class="stu_a"><?php the_field('top_section_-_button_1'); ?></a></li>
+                                <li><a href="/students-article/#pop1" class="phy_a"><?php the_field('top_section_-_button_2'); ?></a></li>
                             </ul>
                         </div>
                     </div>
@@ -405,7 +405,8 @@ if('physician' == "<?php echo ($ps ? 'physician' : 'student'); ?>") {
 
      } else if (url.includes("#pop1")) {
 
-       $(".head-rh-info ul li a.stu_a").addClass("active");
+       $(".head-rh-info ul li a.stu_a").removeClass("active");
+       $(".head-rh-info ul li a.phy_a").addClass("active");
 
      } else {
        $(".nav-tabs .nav-link.stu").addClass("active");
@@ -446,6 +447,8 @@ jQuery(function ($) {
     $("div#pop1.tab-pane.fade").attr('aria-selected', true);
     $(".nav-tabs .nav-link.stu").attr("href", "/#pop2");
     //add back active class to chosen tab
+    $(".head-rh-info ul li a.stu_a").removeClass("active");
+    $(".head-rh-info ul li a.phy_a").addClass("active");
     $(".nav-item.nav-link.stu").removeClass('active');
     $("div#pop2.tab-pane.fade").removeClass('active show');
     $("div#pop2.tab-pane.fade").attr('aria-selected', false);

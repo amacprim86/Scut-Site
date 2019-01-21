@@ -98,14 +98,12 @@
               'meta_query' => array(
               array(
                 'key' => 'p_or_s',
-                'compare' => '==',
+                'compare' => '=',
                 'value' => '0'
-              )
-            ),
-              'meta_query' => array(
+              ),
               array(
                 'key' => 'featured_article',
-                'compare' => '==',
+                'compare' => '=',
                 'value' => '1'
               )
             ),
@@ -128,7 +126,60 @@
 
 
 
-                <div class="col-md-4 mb-5 mb-md-0">
+                <div class="col-md-4 mb-5 mb-md-0 stud">
+                  <div class="article-box">
+                  <div class="article-box-video">
+                    <iframe width="560" height="315" src="<?php the_field('video_link'); ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                  </div>
+                  <h2><?php the_title(); ?></h2>
+                  <p><?php echo custom_field_excerpt(); ?></p>
+                  <a href="<?php the_permalink() ?>" class="btn btn-cat">Read More</a>
+                  </div>
+                </div>
+
+
+
+            <!-- show pagination here -->
+
+
+            <?php endwhile; ?>
+            <?php endif; ?>
+
+            <!-- PHYSICIANS OR STUDENTS ARTICLES, Post Loop START -->
+            <?php
+            $query = new WP_Query( array(
+              'meta_query' => array(
+              array(
+                'key' => 'p_or_s',
+                'compare' => '=',
+                'value' => '1'
+              ),
+              array(
+                'key' => 'featured_article',
+                'compare' => '=',
+                'value' => '1'
+              )
+            ),
+
+
+              'posts_per_page'      => 3,
+              'order' => 'ASC',
+              'post_type' => array('articles') ));
+
+            if ( $query->have_posts() ) : $index = 0; ?>
+                <?php while ( $query->have_posts() ) : $query->the_post(); $index++; ?>
+                <?php
+                  $categories = get_the_category();
+                  $category_string = "";
+                    foreach($categories as $category) {
+                      $category_string .= $category->slug ." ";
+                  }
+                ?>
+
+
+
+
+                <div class="col-md-4 mb-5 mb-md-0 phys">
                   <div class="article-box">
                   <div class="article-box-video">
                     <iframe width="560" height="315" src="<?php the_field('video_link'); ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -259,10 +310,12 @@ if('physician' == "<?php echo ($ps ? 'physician' : 'student'); ?>") {
        $(".nav-tabs .nav-link.phy").addClass("active");
        $(".nav-tabs .nav-link.stu").attr("href", "/students-article/").attr("data-toggle",false);
        $(".head-rh-info ul li a.phy_a").addClass("active");
+       $("div.col-md-4.mb-5.mb-md-0.stud").css('display', 'none');
 
      } else {
        $(".nav-tabs .nav-link.stu").addClass("active");
        $(".nav-tabs .nav-link.phy").attr("href", "/students-article/#pop1").attr("data-toggle",false);
        $(".head-rh-info ul li a.stu_a").addClass("active");
+       $("div.col-md-4.mb-5.mb-md-0.phys").css('display', 'none');
      };
 </script>

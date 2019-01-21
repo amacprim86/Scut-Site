@@ -3,7 +3,7 @@
  * Template Name: Home template
 */
 ?>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <!-- Header -->
 <header id="headder">
@@ -20,7 +20,7 @@
                         <p><?php the_field('top_section_-_title'); ?></p>
                         <ul class="d-flex flex-column flex-sm-column flex-md-row flex-sm-row justify-content-between">
                             <li><a href="/students-article" class="active"><?php the_field('top_section_-_button_1'); ?></a></li>
-                            <li><a href="/students-article/#pop2"><?php the_field('top_section_-_button_2'); ?></a></li>
+                            <li><a href="/students-article/#pop1"><?php the_field('top_section_-_button_2'); ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
               <div class="sellect-choose">
                 <ul class="d-flex flex-column flex-sm-column flex-md-row flex-sm-row justify-content-start pt-4">
                     <li><a href="/students-article"><?php the_field('section_1_-_button_1'); ?></a></li>
-                    <li><a href="#"><?php the_field('section_1_-_button_2'); ?></a></li>
+                    <li><a href="/students-article/#pop1"><?php the_field('section_1_-_button_2'); ?></a></li>
                 </ul>
               </div>
             </div>
@@ -152,7 +152,7 @@
                 <div class="category-info">
                     <h3 class="mb-4 cl_01"><?php the_title(); ?></h3>
                     <p class="mb-4"><?php echo custom_field_excerpt(); ?></p>
-                    <a class="btn btn-cat" href="/students-article/#pop2">see more student resources</a>
+                    <a class="btn btn-cat" href="<?php the_permalink() ?>">Read More</a>
                 </div>
             </div>
         </div>
@@ -218,7 +218,7 @@
                 <div class="category-info">
                     <h3 class="mb-4 cl_01"><?php the_title(); ?></h3>
                     <p class="mb-4"><?php echo custom_field_excerpt(); ?></p>
-                    <a class="btn btn-cat btn-cat-cl-bd" href="/students-article/#pop1">see additional articles</a>
+                    <a class="btn btn-cat btn-cat-cl-bd" href="<?php the_permalink() ?>">Read More</a>
                 </div>
             </div>
         </div>
@@ -240,11 +240,11 @@
     		<div class="container">
     			<div class="row">
     				<div class="col-md-12">
-    					<h2 class="mb-3"><?php the_field('footer_-_title'); ?></h2>
-    					<p><?php the_field('footer_-_subtitle'); ?></p>
+    					<h2 class="mb-3"><?php the_field('footer_-_title',6); ?></h2>
+    					<p><?php the_field('footer_-_subtitle',6); ?></p>
 
     					<div class="in_choose mt-4">
-    						<h4><?php the_field('footer_-_form_title'); ?></h4>
+    						<h4><?php the_field('footer_-_form_title',6); ?></h4>
 
                 <?php the_field('footer_-_form_link',6); ?>
     					</div>
@@ -277,6 +277,7 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/wp-content/themes/sage/assets/scripts/bootstrap.min.js"></script>
 
