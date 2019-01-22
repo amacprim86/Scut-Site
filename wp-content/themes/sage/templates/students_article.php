@@ -18,6 +18,7 @@
 <!-- Fa fa link -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -266,68 +267,266 @@
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer>
         <div class="main-footer">
-          <div class="footer-tp p_sec text-center bg_03">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <h2 class="mb-3">recieve the latest scutwork efficiency news</h2>
-                  <p>each month i’ll send the latest resources directly to your inbox.</p>
-                  <div class="in_choose mt-4">
-                    <h4>I’m interested in: </h4>
-                    <ul class="mt-5">
-                      <li>
-                        <label class="in_choose_radio">
-                          <input type="radio" checked="checked" name="radio">
-                          <span class="checkmark"></span>
-                        </label>
-                      <label>Student Resources</label>
-                      </li>
-                      <li>
-                        <label class="in_choose_radio">
-                          <input type="radio" name="radio">
-                          <span class="checkmark"></span>
-                        </label>
-                        <label>Physicians Resources</label></li>
-                      <li>
-                      <label class="in_choose_radio">
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                      </label>
-                      <label>Board Review Case Of the Week</label>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="get-email-sec d-flex flex-column flex-sm-row align-items-center mt-5">
-                    <input class="form-control email-in" placeholder="enter email address" type="email" name="">
-                    <button class="btn btn-default btn-sign-up">sign me up</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="footer-bt">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-md-12">
-                          <ul class="social-media">
-                              <li><a href="#"><img src="/wp-content/themes/sage/assets/images/!_footer_facebook-logo.png"></a></li>
-                              <li><a href="#"><img src="/wp-content/themes/sage/assets/images/!_footer_twitter-logo.png"></a></li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
+        	<div class="footer-tp p_sec text-center bg_03">
+        		<div class="container">
+        			<div class="row">
+        				<div class="col-md-12">
+        					<h2 class="mb-3"><?php the_field('footer_-_title',6); ?></h2>
+        					<p><?php the_field('footer_-_subtitle',6); ?></p>
+
+        					<div class="in_choose mt-4">
+        						<h4><?php the_field('footer_-_form_title',6); ?></h4>
+
+                    <?php the_field('footer_-_form_link',6); ?>
+        					</div>
+
+        					<!-- <div class="get-email-sec d-flex flex-column flex-sm-row align-items-center mt-4">
+        						<input class="form-control email-in" placeholder="enter email address" type="email" name="">
+        						<button class="btn btn-default btn-sign-up">sign me up</button>
+        					</div> -->
+
+
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="footer-bt">
+    	        <div class="container">
+    	            <div class="row">
+    	                <div class="col-md-12">
+    	                    <ul class="social-media">
+    	                        <li><a href="#"><img src="/wp-content/themes/sage/assets/images/!_footer_facebook-logo.png"></a></li>
+    	                        <li><a href="#"><img src="/wp-content/themes/sage/assets/images/!_footer_twitter-logo.png"></a></li>
+    	                    </ul>
+    	                </div>
+    	            </div>
+    	        </div>
+        	</div>
         </div>
     </footer>
     <!-- Footer -->
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/wp-content/themes/sage/assets/scripts/bootstrap.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/wp-content/themes/sage/assets/scripts/bootstrap.min.js"></script>
+
+
+    <style>
+    form#gform_1 h3.gform_title {
+      display: none;
+    }
+    form#gform_1 #field_1_1 label.gfield_label {
+      display: none;
+    }
+    form#gform_1 #field_1_2 label.gfield_label {
+      display: none;
+    }
+    form#gform_1 #gform_fields_1 {
+      display: flex;
+      flex-direction: column;
+    }
+    form#gform_1 .gform_wrapper ul.gfield_checkbox li label, .gform_wrapper ul.gfield_radio li label {
+      font-family: 'Merriweather', serif;
+      font-size: 16px;
+    }
+    form#gform_1 .gform_wrapper {
+      margin-top: 0px;
+    }
+    form#gform_1 span.gform_description {
+      margin-bottom: 0px;
+    }
+    form#gform_1 #gform_wrapper_1 {
+      margin-top: 0px;
+    }
+    form#gform_1 div.gform_heading {
+      margin-bottom: 0px;
+    }
+    form#gform_1 #field_1_1 {
+      margin-top: 0px;
+    }
+    form#gform_1 .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li {
+      min-width: 280px;
+    }
+    form#gform_1 .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li input {
+      margin-top: 0px !important;
+      margin-right: 16px;
+    }
+    form#gform_1 .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li input[type="radio" i] {
+      color: red;
+    }
+    form#gform_1 .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li input ~ .checkmark {
+      background-color: #ccc;
+    }
+    .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield input[type=radio] {
+      display: none;
+    }
+
+    /* Gravity Forms - Radio Button */
+
+    input[type=radio] {
+      display: none;
+    }
+
+    input[type=radio] label {
+      position: relative;
+      cursor: pointer;
+    }
+
+    input[type=radio] + label:before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin: 0px 8px 0 8px;
+      vertical-align: middle;
+      cursor: pointer;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 2px solid #fff;
+    }
+
+    input[type=radio]:checked + label {
+      position: relative;
+    }
+    input[type=radio]:checked + label:after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 9px;
+      width: 22px;
+      height: 22px;
+      border: 2px solid #134151;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+    input[type=radio]:checked + label:before {
+      background-color: #134151;
+      border: 2px solid #fff;
+    }
+    .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+      background-color: transparent;
+      width: 372px;
+      border: 2px solid #fff;
+      border-radius: 30px;
+      text-indent: 10px;
+      color: #fff;
+    }
+    .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file])::placeholder {
+      text-align: center;
+      text-indent: -10px;
+
+    }
+    .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):placeholder-shown {
+      text-align: center;
+    }
+
+    /* Gravity Form - Submit Button */
+
+    form#gform_1 div.ginput_container.ginput_container_email {
+      margin-right: 200px;
+    }
+
+    form#gform_1 .gform_footer {
+      position: absolute;
+      width: 160px;
+      top: 212px;
+      right: 300px;
+    }
+    form#gform_1 #gform_submit_button_1 {
+      background-color: #134151;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      border-radius: 30px;
+      font-size: 15px;
+      letter-spacing: 1.3px;
+      padding: 10px 25px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    @media only screen and (max-width: 1200px) {
+
+      form#gform_1 .gform_footer {
+        right: 180px;
+
+      }
+
+    }
+
+    @media only screen and (max-width: 991px) {
+
+      form#gform_1 .gform_footer {
+        right: 0;
+        left: 0;
+        margin: auto;
+        top: 400px;
+      }
+      ul#input_1_1.gfield_radio {
+        display: flex;
+        flex-direction: column;
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        margin-left: 35%;
+      }
+      .gform_wrapper ul.gfield_radio li label {
+      }
+      .gform_wrapper ul.gfield_radio li {
+            text-align: left;
+      }
+      form#gform_1 div.ginput_container.ginput_container_email {
+        margin: auto;
+      }
+      body .gform_wrapper ul li.field_description_below div.ginput_container_radio {
+        margin: auto;
+      }
+
+    }
+
+    @media only screen and (max-width: 767px) {
+      ul#input_1_1.gfield_radio {
+        margin: auto;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+    @media only screen and (max-width: 639px) {
+      .p_sec {
+        min-height: 650px;
+      }
+      form#gform_1 .gform_footer {
+        top: 430px;
+      }
+
+    }
+    @media only screen and (max-width: 428px) {
+
+      form#gform_1 .gform_footer {
+        top: 460px;
+      }
+      form#gform_1 .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li input {
+        margin: unset;
+        margin-right: -26px;
+      }
+      input[type=radio] + label:before  {
+        background-color: #9de7e9;
+      }
+      .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):placeholder-shown {
+        max-width: 300px;
+      }
+
+    }
+
+
+
+
+    </style>
 
 <style>
 
@@ -485,4 +684,16 @@ jQuery(function ($) {
 
   });
   });
+</script>
+
+<script>
+jQuery(function ($) {
+  $(".sidebar-head").click(function(){
+    $('.sd-content').toggle(function () {
+        $(".sd-content").addClass("tab-click");
+    }, function () {
+        $(".sd-content").removeClass("tab-click");
+    });
+  });
+});
 </script>

@@ -380,9 +380,13 @@ input[type=radio]:checked + label:before {
   width: 372px;
   border: 2px solid #fff;
   border-radius: 30px;
+  text-indent: 10px;
+  color: #fff;
 }
 .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file])::placeholder {
   text-align: center;
+  text-indent: -10px;
+
 }
 .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):placeholder-shown {
   text-align: center;
@@ -413,6 +417,77 @@ form#gform_1 #gform_submit_button_1 {
 }
 
 
+@media only screen and (max-width: 1200px) {
 
+  form#gform_1 .gform_footer {
+    right: 180px;
+
+  }
+
+}
+
+@media only screen and (max-width: 991px) {
+
+  form#gform_1 .gform_footer {
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 400px;
+  }
+  ul#input_1_1.gfield_radio {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin-left: 35%;
+  }
+  .gform_wrapper ul.gfield_radio li label {
+  }
+  .gform_wrapper ul.gfield_radio li {
+        text-align: left;
+  }
+  form#gform_1 div.ginput_container.ginput_container_email {
+    margin: auto;
+  }
+  body .gform_wrapper ul li.field_description_below div.ginput_container_radio {
+    margin: auto;
+  }
+
+}
+
+@media only screen and (max-width: 767px) {
+  ul#input_1_1.gfield_radio {
+    margin: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media only screen and (max-width: 639px) {
+  .p_sec {
+    min-height: 650px;
+  }
+  form#gform_1 .gform_footer {
+    top: 430px;
+  }
+
+}
+@media only screen and (max-width: 428px) {
+
+  form#gform_1 .gform_footer {
+    top: 460px;
+  }
+  form#gform_1 .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li input {
+    margin: unset;
+    margin-right: -26px;
+  }
+  input[type=radio] + label:before  {
+    background-color: #9de7e9;
+  }
+  .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):placeholder-shown {
+    max-width: 300px;
+  }
+
+}
 
 </style>

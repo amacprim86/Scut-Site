@@ -922,3 +922,69 @@ ul.social-media li {
 
 
 }
+
+/* !! MOBILE UPDATE STYLING, ALEX 1.22.2019 !! */
+
+/* HOME PAGE */
+
+@media only screen and (min-width: 992px) and (max-width: 1300px) {
+  .head-rh-info p {
+     font-size: 16px;
+  }
+  .head-rh-info ul li a {
+     font-size: 14px;
+     padding: 5px 22px;
+  }
+
+}
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+  .head-rh-info p {
+     max-width: 300px;
+     margin: auto;
+     padding-bottom: 10px;
+  }
+  .head-rh-info ul li a {
+     font-size: 12px;
+     padding: 5px 5px;
+  }
+
+}
+
+@media only screen and (max-width: 420px) {
+
+  .company-details img {
+      max-width: 225px;
+      margin-bottom: 50px;
+  }
+
+}
+
+/* STUDENTS-ARTICLE */
+
+.sd-content {
+  display: block;
+}
+
+@media only screen and (max-width: 1000px) {
+
+  .mb-5 {
+    display: flex;
+    flex-direction: column;
+  }
+  .col-md-9 {
+    max-width: 100%;
+  }
+  .sidebar-head {
+    cursor: pointer;
+  }
+  .col-md-3 {
+    max-width: 100%;
+  }
+  .sd-content {
+    display: none;
+  }
+  .tab-click {
+    display: block;
+  }
+
+}
