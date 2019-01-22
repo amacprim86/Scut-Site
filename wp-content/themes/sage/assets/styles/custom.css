@@ -629,12 +629,20 @@ ol.breadcrumb a {
 
 /* CUSTOM POST TYPE - DESKTOP */
 
+.b-crumb {
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+  height: auto;
+  padding-top: 30px;
+}
+
 .c-post {
   width: 100%;
   max-width: 90%;
   margin: auto;
   height: auto;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 .c-post iframe {
   width: 100%;
@@ -692,6 +700,10 @@ div.col-md-4.mb-5.mb-md-0.psys {
 
 /* ARTICLE (Custom Post Type) */
 @media only screen and (min-width: 1400px) {
+
+.b-crumb {
+  max-width: 1200px;
+}
 
 .c-post {
   max-width: 1200px;

@@ -43,8 +43,8 @@
                             <div class="head-rh-info text-center">
                                 <p><?php the_field('top_section_-_title',12); ?></p>
                                 <ul class="d-flex flex-column flex-sm-column flex-md-row flex-sm-row justify-content-between">
-                                    <li><a href="students.html"class="stu_a"><?php the_field('top_section_-_button_1',12); ?></a></li>
-                                    <li><a href="#" class="phy_a"><?php the_field('top_section_-_button_2',12); ?></a></li>
+                                    <li><a href="/students-article"class="stu_a"><?php the_field('top_section_-_button_1',12); ?></a></li>
+                                    <li><a href="/students-article/#pop1" class="phy_a"><?php the_field('top_section_-_button_2',12); ?></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -73,6 +73,35 @@
           $ps  = get_field('p_or_s');
     		  ?>
 
+        <div class="b-crumb ph">
+          <div class="row mt-3">
+              <div class="col-md-12">
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="https://scut.dev/">HOME</a></li>
+                      <li class="breadcrumb-item"><a href="/students-article/#pop1">PHYSICIANS</a></li>
+                      <li class="breadcrumb-item"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+                 <!-- <li class="breadcrumb-item active" aria-current="page">ARTICLE TITLE</li> -->
+                    </ol>
+                  </nav>
+              </div>
+          </div>
+       </div>
+
+       <div class="b-crumb st">
+         <div class="row mt-3">
+             <div class="col-md-12">
+                 <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="https://scut.dev/">HOME</a></li>
+                     <li class="breadcrumb-item"><a href="/students-article/#pop1">STUDENTS</a></li>
+                     <li class="breadcrumb-item"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+                <!-- <li class="breadcrumb-item active" aria-current="page">ARTICLE TITLE</li> -->
+                   </ol>
+                 </nav>
+             </div>
+         </div>
+      </div>
 
             <div class="c-post">
               <iframe src="<?php echo $video ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -311,11 +340,13 @@ if('physician' == "<?php echo ($ps ? 'physician' : 'student'); ?>") {
        $(".nav-tabs .nav-link.stu").attr("href", "/students-article/").attr("data-toggle",false);
        $(".head-rh-info ul li a.phy_a").addClass("active");
        $("div.col-md-4.mb-5.mb-md-0.stud").css('display', 'none');
+       $(".b-crumb.st").css('display', 'none');
 
      } else {
        $(".nav-tabs .nav-link.stu").addClass("active");
        $(".nav-tabs .nav-link.phy").attr("href", "/students-article/#pop1").attr("data-toggle",false);
        $(".head-rh-info ul li a.stu_a").addClass("active");
        $("div.col-md-4.mb-5.mb-md-0.phys").css('display', 'none');
+       $(".b-crumb.ph").css('display', 'none');
      };
 </script>
