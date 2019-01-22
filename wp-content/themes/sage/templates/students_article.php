@@ -71,8 +71,8 @@
                                 <div class="col-md-12">
                                     <nav aria-label="breadcrumb">
                                       <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#">HOME</a></li>
-                                        <li class="breadcrumb-item"><a href="#">PHYSICIANS</a></li>
+                                        <li class="breadcrumb-item"><a href="https://scut.dev/">HOME</a></li>
+                                        <li class="breadcrumb-item"><a href="/students-article/#pop1">PHYSICIANS</a></li>
                                    <!-- <li class="breadcrumb-item active" aria-current="page">ARTICLE TITLE</li> -->
                                       </ol>
                                     </nav>
@@ -171,8 +171,8 @@
                                     <div class="col-md-12">
                                         <nav aria-label="breadcrumb">
                                           <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#">HOME</a></li>
-                                            <li class="breadcrumb-item"><a href="#">STUDENTS</a></li>
+                                            <li class="breadcrumb-item"><a href="https://scut.dev/">HOME</a></li>
+                                            <li class="breadcrumb-item"><a href="/students-article">STUDENTS</a></li>
                                        <!-- <li class="breadcrumb-item active" aria-current="page">ARTICLE TITLE</li> -->
                                           </ol>
                                         </nav>
@@ -464,6 +464,25 @@ jQuery(function ($) {
 
   });
 
+</script>
 
 
+
+<!-- Top Button, 'For Residents & Physicians' -->
+<script>
+jQuery(function ($) {
+  $(".head-rh-info ul li a.phy_a").click(function(){
+  $("div#pop1.tab-pane.fade").addClass('active show');
+  $("div#pop1.tab-pane.fade").attr('aria-selected', true);
+  $(".nav-tabs .nav-link.phy").addClass("active");
+  $(".nav-tabs .nav-link.stu").removeClass("active");
+  $(".nav-tabs .nav-link.stu").attr("href", "/#pop2");
+  $(".head-rh-info ul li a.stu_a").removeClass("active");
+  $(".head-rh-info ul li a.phy_a").addClass("active");
+  $("div#pop2.tab-pane.fade").removeClass('active show');
+  $("div#pop2.tab-pane.fade").attr('aria-selected', false);
+
+
+  });
+  });
 </script>
